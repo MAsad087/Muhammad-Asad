@@ -1,0 +1,99 @@
+#DS Lab Assignment No 2 
+#M Asad FA19-BSE-087
+#BSE-3B
+
+
+package que_to_llist;
+
+public class MAsad087 {
+Node first;
+ Node last;
+ public MAsad087 ()
+ {
+  first = null;
+  last = null;
+ }
+ private class Node{
+ 
+  int s;
+  Node next;
+  Node(int s){
+   this.s = s;
+  }
+  public void displayData(){
+   System.out.println("s= " + s);
+  }
+ }
+ 
+ public void insertLast(int s){
+  Node newNode = new Node(s);
+  if(isEmpty()){
+   first = newNode;
+  }else{
+
+   last.next = newNode;
+  }
+  last = newNode;
+ }
+ 
+ public int removeFirst(){  
+
+  int temp = first.s;
+
+  if(first.next == null){
+   last = null;
+  }
+
+  first = first.next;
+  return temp;
+ }
+ 
+
+ public void displayList(){
+  Node current = first;
+  while(current != null){
+   current.displayData();
+   current = current.next;
+  }
+ }
+ 
+ public int nodeData(){
+  return first.s;
+ }
+ 
+ public boolean isEmpty(){
+  return first == null;
+ }
+
+ public void insert(int item){
+  insertLast(item);
+ }
+ 
+ public int remove(){
+  if(isEmpty()){
+   throw new RuntimeException("Queue is empty..");
+  }
+  return removeFirst();
+ } 
+ 
+ public int peek(){
+  if(isEmpty()){
+   throw new RuntimeException("Queue is empty..");
+  }
+  return nodeData();
+ }  
+    public static void main(String[] args) {
+       MAsad087  queue = new MAsad087 ();
+  queue.insert(2);
+  queue.insert(22);
+  queue.insert(78);
+  queue.insert(187);
+  System.out.println("-- Displaying Queue data --");
+  queue.displayList();
+  System.out.println("Element on peek - " + queue.peek());
+  System.out.println("-- Removing Queue elements --");
+  System.out.println("removed element- " + queue.remove());
+  System.out.println("removed element- " + queue.remove());
+  System.out.println("removed element- " + queue.remove());
+ }
+}
