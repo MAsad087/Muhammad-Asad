@@ -1,0 +1,42 @@
+package recursion;
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+/**
+ *
+ * @author Muhammad Asad
+ */
+public class dectobin {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+     int Number;
+ Scanner as = new Scanner(System.in);
+     System.out.println("Enter Decimal Number For Conversion");
+     Number=as.nextInt();
+     
+     
+   System.out.println(" ******After Conversion****** ");
+   System.out.println("Decimal Number("+Number+") = Binary Number("+dec_bin(Number)+")");
+ }
+ 
+ static int dec_bin(int s)
+ {
+     if(s==0)
+         return 0;
+     else
+         return ((s%2)+10*dec_bin(s/2));
+ }
+}
+
+  
